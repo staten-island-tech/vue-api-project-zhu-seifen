@@ -6,6 +6,7 @@
             {{ book.title }}
         </router-link>
         </span>
+        
      </div>
   </div>
 </template>
