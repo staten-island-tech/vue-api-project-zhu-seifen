@@ -16,7 +16,7 @@ export default {
       
   }
 },
-created: function() {
+/* created: function() {
   this.fetchData();
 },
 methods: {
@@ -30,7 +30,7 @@ methods: {
                 console.log(error)
               }
             }
-},
+}, */
 }
 
 </script>
@@ -49,7 +49,7 @@ methods: {
   scroll-behavior: smooth;
 }
 
-#nav {
+/* #nav {
   padding: 30px;
 
   a {
@@ -60,5 +60,5 @@ methods: {
       color: #42b983;
     }
   }
-}
+} */
 </style>

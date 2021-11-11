@@ -8,17 +8,41 @@
     </section>
     <section id="books-list">
       <h2>Best Selling Books</h2>
-      
+      <BookCard v-for="book in books" :key="book.title" :book="book"/>
     </section>
   </div>
 </template>
 
 <script>
+import BookCard from "../components/BookCard.vue";
+
 export default {
   name: "Home",
   components: {
-    
+      BookCard,
   },
+  data(){
+    return {
+      books: [],
+      
+    }
+  },
+  created: function() {
+    this.fetchData();
+  },
+  methods: {
+
+    fetchData: async function(){
+      try {
+        const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
+        const data = await result.json();
+        this.books = data.results.lists[0].books;
+        console.log(this.books)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+},
 };
 </script>
 
