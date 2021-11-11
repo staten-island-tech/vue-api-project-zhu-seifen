@@ -16,6 +16,7 @@ const routes = [
     path: "/book/:id",
     name: "Book",
     component: Book,
+    props: true,
   },
   {
     path: "/test/",

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="list in events" :key="list">
+    <div v-for="list in lists" :key="list">
         <span class="flex" v-for="book in list.books" :key="book">
-        <router-link :to="{name: 'Book',}">
+        <router-link :to="{name: 'Book', params: { id: book }}">
             {{ book.title }}
         </router-link>
         </span>
@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      events: [],
+      lists: [],
     };
   },
   created: function () {
@@ -28,7 +28,7 @@ export default {
           `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`
         );
         const data = await result.json();
-        this.events = data.results.lists;
+        this.lists = data.results.lists;
         console.log(data);
       } catch (error) {
         console.log(error);
