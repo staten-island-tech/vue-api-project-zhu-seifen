@@ -6,9 +6,11 @@
         <span class="title2">Books</span>
       </div>
     </section>
-    <section id="books-list">
+    <section>
       <h2>Best Selling Books</h2>
-      <BookCard v-for="book in books" :key="book.title" :book="book"/>
+      <!-- <div id="books-list" v-for="list in books" :key="list.title"> -->
+        <BookCard v-for="book in books.books" :key="book.title" :book="book"/>
+      <!-- </div> -->
       <div id="nav-btns">
         <button class="button" @click="previousPage()">Previous</button>
         <button class="button" @click="nextPage()">Next</button>
@@ -27,6 +29,7 @@ export default {
   },
   data(){
     return {
+      lists: [],
       books: [],
       index: 0,
     }
@@ -40,19 +43,25 @@ export default {
       try {
         const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
         const data = await result.json();
-        this.books = data.results.lists[this.index].books
-        console.log(this.books)
+        this.lists = data
+        this.books = this.lists.results.lists[this.index]
+        console.log(data)
+        
       } catch (error) {
         console.log(error)
       }
     },
+    newPage: function() {
+      
+      this.books = this.lists.results.lists[this.index]
+    },
     previousPage: function() {
         this.index--
-        this.fetchData();
+        this.newPage()
       },
       nextPage: function() {
         this.index++
-        this.fetchData();
+        this.newPage()
       },
   },
   computed: {
