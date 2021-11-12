@@ -1,6 +1,6 @@
 <template>
   <div class="book-info">
-    <p>SHOW THE BOOK {{ id.title }}
+    <p> {{ id.title }}
 </p>
     
   </div>
