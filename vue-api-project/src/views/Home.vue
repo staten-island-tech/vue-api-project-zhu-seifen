@@ -8,7 +8,11 @@
     </section>
     <section id="books-list">
       <h2>Best Selling Books</h2>
-      <BookCard v-for="book in books" :key="book" :book="book"/>
+      <BookCard v-for="book in books" :key="book.title" :book="book"/>
+      <div id="nav-btns">
+        <button class="button" @click="previousPage()">Previous</button>
+        <button class="button" @click="nextPage()">Next</button>
+      </div>
     </section>
   </div>
 </template>
@@ -36,13 +40,24 @@ export default {
       try {
         const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
         const data = await result.json();
-        this.books = data.results.lists[1].books;
+        this.books = data.results.lists[this.index].books
         console.log(this.books)
       } catch (error) {
         console.log(error)
       }
     },
-},
+    previousPage: function() {
+        this.index--
+        this.fetchData();
+      },
+      nextPage: function() {
+        this.index++
+        this.fetchData();
+      },
+  },
+  computed: {
+      
+    },
 };
 </script>
 

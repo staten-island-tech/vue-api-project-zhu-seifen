@@ -16,7 +16,7 @@ export default {
     },
     data() {
         return {
-            bookCover: require(this.book.book_image)
+            
         }
     }
 }
