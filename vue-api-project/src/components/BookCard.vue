@@ -1,5 +1,5 @@
 <template>
-  <router-link class="book-link" :to="{ name: 'Book', params: { id: book } }">
+  <router-link class="book-link" :to="{ name: 'Book', params: { id: book } }" >
       <h3 class="title">{{ book.title }}</h3>
       <img
         :src= "this.book.book_image"

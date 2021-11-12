@@ -1,5 +1,24 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="book-info">
+    <p>SHOW THE BOOK {{ id.title }}
+</p>
+    
   </div>
 </template>
+
+<script>
+
+export default {
+ props  : {
+   id : Object,
+   }, 
+}
+</script>
+
+<style scoped>
+.book-info {
+  background-color: #E64A19; 
+/*   #FF9800 */
+}
+</style>
+

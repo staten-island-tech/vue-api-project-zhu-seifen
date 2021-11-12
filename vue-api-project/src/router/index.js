@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Search from "../views/Book.vue"
+import Book from "../views/Book.vue";
+import Test from "../views/Test.vue";
 
 Vue.use(VueRouter);
 
@@ -12,9 +13,15 @@ const routes = [
     component: Home,
   },
   {
-    path: "/book",
+    path: "/book/:id",
     name: "Book",
-    component: Search,
+    component: Book,
+    props: true,
+  },
+  {
+    path: "/test/",
+    name: "Test",
+    component: Test,
   },
 ];
 
