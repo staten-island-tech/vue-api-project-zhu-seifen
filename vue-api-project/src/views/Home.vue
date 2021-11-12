@@ -8,7 +8,7 @@
     </section>
     <section id="books-list">
       <h2>Best Selling Books</h2>
-      <BookCard v-for="book in books" :key="book.title" :book="book"/>
+      <BookCard v-for="book in books" :key="book" :book="book"/>
     </section>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
   data(){
     return {
       books: [],
-      
+      index: 0,
     }
   },
   created: function() {
@@ -36,7 +36,7 @@ export default {
       try {
         const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
         const data = await result.json();
-        this.books = data.results.lists[0].books;
+        this.books = data.results.lists[1].books;
         console.log(this.books)
       } catch (error) {
         console.log(error)
