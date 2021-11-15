@@ -6,7 +6,7 @@
         <span class="title2">Books</span>
       </div>
     </section>
-    <section>
+    <section class="books">
       <h2>Best Selling Books</h2>
       <!-- <div id="books-list" v-for="list in books" :key="list.title"> -->
         <BookCard v-for="book in books.books" :key="book.title" :book="book"/>
@@ -45,28 +45,34 @@ export default {
         const data = await result.json();
         this.lists = data
         this.books = this.lists.results.lists[this.index]
-        console.log(data)
-        
+        console.log(this.books)    
       } catch (error) {
         console.log(error)
       }
     },
     newPage: function() {
-      
       this.books = this.lists.results.lists[this.index]
     },
     previousPage: function() {
-        this.index--
-        this.newPage()
+      if (this.index === 0) {
+          //console.log(this.index)               
+        } else {
+          this.index--
+          this.newPage()
+        }
       },
       nextPage: function() {
-        this.index++
-        this.newPage()
+        if (this.index === this.lists.results.lists.length -1) {
+            //console.log(this.index)   
+          } else {
+            this.index++
+            this.newPage()
+        }
       },
   },
   computed: {
       
-    },
+  },
 };
 </script>
 
@@ -102,5 +108,27 @@ url("../assets/shelves.jpg");
   .title2 {
     font-size: 7rem;
     font-weight: 900;
+  }
+
+  .books {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h2{
+    font-size: 2rem;
+  }
+
+  #nav-btns {
+    border-top: solid 1px black;
+    width: 60%;
+    padding: 2rem;
+  }
+
+  .button {
+    margin: 1rem;
+    width: 7rem;
   }
 </style>

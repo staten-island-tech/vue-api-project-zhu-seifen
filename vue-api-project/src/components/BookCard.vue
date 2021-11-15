@@ -1,11 +1,16 @@
 <template>
-  <router-link class="book-link" :to="{ name: 'Book', params: { id: book } }" >
-      <h3 class="title">{{ book.title }}</h3>
-      <img
-        :src= "this.book.book_image"
-        alt="Book Cover"
-        class="book-cover">
-  </router-link>
+  <section class="book-card">
+    <img
+    :src= "this.book.book_image"
+    alt="Book Cover"
+    class="book-cover">
+    <div id="book-info">
+        <h3 class="title">{{ book.title }}</h3>
+        <p class="author-name">{{ book.author }}</p>
+        <p class="book-description">{{ book.description }}</p>
+        <router-link class="book-link" :to="{ name: 'Book', params: { id: book } }" tag="button">Learn More</router-link>
+    </div>
+  </section>
 
 </template>
 
@@ -22,6 +27,44 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    .book-cover {
+        height: 15rem;
+    }
 
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .book-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding:2.5rem;
+        border-top: solid 1px black;
+        width: 60%;
+    }
+
+    .book-description{
+        width: 75%;
+    }
+
+    #book-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 75%;
+    }
+
+    .title {
+        margin: .5rem;
+    }
+
+    p{
+        font-size: 1rem;
+        margin: .5rem;
+    }
+    
 </style>
