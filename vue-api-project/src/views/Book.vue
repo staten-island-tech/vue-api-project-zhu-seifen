@@ -4,9 +4,13 @@
     <div>
       <h1> {{ id.title }}</h1>
       <h4> by: {{ id.author }}</h4>
-      <button class = "button1" @click="addToCart">+</button>
+      <button 
+        class = "button1" 
+        @click="addToCart"
+        :cart="cart">+</button>
       <button class = "button2" @click="removeFromCart">-</button>
-      <div> Items:{{ cart }}</div>    
+      <div> Quantity:{{ cart }}</div>    
+      <div> {{ statusDescription }}</div>
     </div>
   </div>
 </template>
@@ -19,15 +23,22 @@ export default {
    },
    data() {
      return {
+        statusDescription: "",
          cart: 0,
      }
    },
   methods: {
     addToCart (){
       this.cart += 1
+      this.statusDescription = 'This item has been added to your cart.'
+      console.log('This item has been added to your cart.')
+      
     },
     removeFromCart (){
-      this.cart -= 1
+      if (this.cart >= 1)
+         this.cart -= 1,
+         this.statusDescription = 'This item has been removed to your cart.'
+         console.log('This item has been removed to your cart.')
     },
   },
 

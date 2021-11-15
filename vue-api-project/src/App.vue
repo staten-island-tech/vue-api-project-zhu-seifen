@@ -3,6 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/test/">Test</router-link>
+      <div> Cart:{{ cart }}</div>
+
     </div>
     <router-view />
   </div>
@@ -10,6 +12,15 @@
 
 <script>
 export default {
+  props: {
+    cart: Number,
+  },
+  
+  data() {
+    return {
+      
+    }
+  }
 }
 
 </script>
@@ -26,6 +37,10 @@ export default {
   font-size: 62.5%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+#nav {
+  background-color:#E64A19;
 }
 
 /* #nav {
