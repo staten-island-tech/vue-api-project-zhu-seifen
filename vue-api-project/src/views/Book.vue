@@ -1,9 +1,13 @@
 <template>
   <div class="book-flex">
-    <div> {{ id.title }}</div>
-    <h4> by: {{ id.author }}</h4>
     <img :src="id.book_image">  
-    <button @click="UpdateCart()">Add to Cart</button>
+    <div>
+      <h1> {{ id.title }}</h1>
+      <h4> by: {{ id.author }}</h4>
+      <button class = "button1" @click="addToCart">+</button>
+      <button class = "button2" @click="removeFromCart">-</button>
+      <div> Items:{{ cart }}</div>    
+    </div>
   </div>
 </template>
 
@@ -15,21 +19,30 @@ export default {
    },
    data() {
      return {
-       
+         cart: 0,
      }
    },
   methods: {
+    addToCart (){
+      this.cart += 1
+    },
+    removeFromCart (){
+      this.cart -= 1
+    },
+  },
 
-  } 
 }
 </script>
 
 <style scoped>
 .book-flex {
   display: flex; 
+  padding: 2rem;
   flex-direction: row; 
   align-items: center; 
   justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ff990027;
   /* background-color: #E64A19;  */
 /*   #FF9800 */
 }
@@ -46,7 +59,7 @@ img {
    
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 900px){
   .book-flex{
       display: flex; 
   flex-direction: column; 
@@ -55,5 +68,29 @@ img {
   font-size: 3rem;
   }
 }
+
+.button1 {
+  border: none;
+  width: 3rem;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background-color: #FF9800;
+
+}
+.button2 {
+  border: none;
+  width: 3rem;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #FF9800;
+}
+
+.button2:hover{
+  background-color:#E64A19;
+}
+.button1:hover{
+  background-color: #E64A19;
+}
+
 </style>
 
