@@ -8,7 +8,7 @@
         <h3 class="title">{{ book.title }}</h3>
         <p class="author-name">{{ book.author }}</p>
         <p class="book-description">{{ book.description }}</p>
-        <router-link class="book-link" :to="{ name: 'Book', params: { id: book } }" tag="button">Learn More</router-link>
+        <router-link class="book-btn" :to="{ name: 'Book', params: { id: book } }" tag="button">Learn More</router-link>
     </div>
   </section>
 
@@ -65,6 +65,15 @@ export default {
     p{
         font-size: 1rem;
         margin: .5rem;
+    }
+
+    .book-btn {
+        background-color: #ff9800;
+	    color: white;
+	    border: none;
+	    font: inherit;
+	    cursor: pointer;
+	    outline: inherit;
     }
     
 </style>
