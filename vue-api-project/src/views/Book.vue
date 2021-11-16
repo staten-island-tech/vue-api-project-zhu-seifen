@@ -1,15 +1,20 @@
 <template>
   <div class="book-flex">
-    <img :src="id.book_image">  
+    <div class="container">
+      <img class="image" :src="id.book_image">
+      <div class="middle">
+        <div class="text"> {{ id.description }}</div>
+      </div>
+    </div>  
     <div>
       <h1> {{ id.title }}</h1>
       <h4> by: {{ id.author }}</h4>
-      <button 
-        class = "button1" 
-        @click="addToCart"
-        :cart="cart">+</button>
-      <button class = "button2" @click="removeFromCart">-</button>
-      <div> Quantity:{{ cart }}</div>    
+      <div class="buttonContainer">
+        <button class="button1" @click="addToCart" :cart="cart">+</button>
+        <div class="cartValue"> {{ cart }}</div>
+        <button class="button2" 
+        @click="removeFromCart">-</button>
+      </div>  
       <div> {{ statusDescription }}</div>
     </div>
   </div>
@@ -25,21 +30,24 @@ export default {
      return {
         statusDescription: "",
          cart: 0,
+         remove: 0,
      }
    },
   methods: {
     addToCart (){
       this.cart += 1
-      this.statusDescription = 'This item has been added to your cart.'
+      this.statusDescription = this.cart + ' item(s) has been added to your cart.'
       console.log('This item has been added to your cart.')
       
     },
     removeFromCart (){
       if (this.cart >= 1)
          this.cart -= 1,
-         this.statusDescription = 'This item has been removed to your cart.'
-         console.log('This item has been removed to your cart.')
+         this.remove +=1
+         this.statusDescription = this.remove +' item(s) has been removed from your cart.',
+         console.log('This item has been removed from your cart.')
     },
+
   },
 
 }
@@ -69,6 +77,51 @@ img {
     height: auto;
    
 }
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.cartValue {
+  background-color:#FF9800;
+  font-size: 1rem;
+
+}
+.container { 
+  position: relative; width: 50%; 
+  } 
+.image { 
+  opacity: 1; 
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility:hidden; 
+  } 
+.middle { 
+  transition: .5s ease; 
+  opacity: 0; 
+  position: absolute; 
+  top:50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  -ms-transform: translate(-50%,-50%); 
+  text-align: center; } 
+.container:hover .image { 
+  opacity: 0.3; 
+  }
+.container:hover .middle { 
+  opacity: 1; 
+  }
+.text { 
+  background-color: #04AA6D;
+  color: white; 
+  font-size: 16px;
+  padding: 16px 32px; }
+
 
 @media screen and (max-width: 900px){
   .book-flex{
