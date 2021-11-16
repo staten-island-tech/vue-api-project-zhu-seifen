@@ -7,15 +7,18 @@
       </div>
     </div>  
     <div>
-      <h1> {{ id.title }}</h1>
-      <h4> by: {{ id.author }}</h4>
+      <div v-bind:style="{ border: bottom}">
+        <h1> {{ id.title }}</h1>
+        <h4> by: {{ id.author }}</h4>
+      </div>
+     
       <div class="buttonContainer">
         <button class="button1" 
         @click="removeFromCart">-</button>
         <div class="cartValue"> {{ cart }}</div>
         <button class="button2" @click="addToCart" :cart="cart">+</button>
       </div>  
-      <div> {{ statusDescription }}</div>
+      <div class="status"> {{ statusDescription }}</div>
     </div>
   </div>
 </template>
@@ -58,25 +61,35 @@ export default {
   display: flex; 
   padding: 2rem;
   flex-direction: row; 
-  align-items: center; 
+
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #ff990027;
-  /* background-color: #E64A19;  */
-/*   #FF9800 */
+
 }
 h1{
   font-size: 2rem;
+
+  text-align: left;
+  margin:0.5rem
+/*   add cart and way to leave rating */
 }
 h4{
   font-size:1rem;
+  border-bottom: 1px solid black;
+  text-align: left;
+  padding-bottom: 10px;
+  margin:0.5rem
+  
+}
+.status {
+  font-size: 1rem;
+  padding: 1rem;
 }
 img {
-   max-width: 100%; 
-    height: 30vw; 
-    height: auto;
-   
+    /* max-width: 100%; */
+    height: 15rem; 
 }
+
 .buttonContainer {
   display: flex;
   flex-direction: row;
@@ -87,7 +100,7 @@ img {
 
 .cartValue {
   background-color:#FF9800;
-  font-size: 1rem;
+  font-size: 0.95rem;
 
 }
 .container { 
@@ -100,6 +113,7 @@ img {
   height: auto;
   transition: .5s ease;
   backface-visibility:hidden; 
+
   } 
 .middle { 
   transition: .5s ease; 
@@ -129,7 +143,18 @@ img {
   flex-direction: column; 
   align-items: center; 
   justify-content: center;
-  font-size: 3rem;
+  }
+  h1{
+  font-size: 2rem;
+  }
+  h4{
+  font-size:1rem;
+  }
+  .status{
+  font-size: 1rem;
+  }
+  img{
+    height: 1rem; 
   }
 }
 

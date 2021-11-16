@@ -40,7 +40,7 @@ export default {
 }
 
 #nav {
-  background-color:#E64A19;
+  background-color:#FF9800;
 }
 
 /* #nav {
