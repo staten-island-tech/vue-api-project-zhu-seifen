@@ -10,10 +10,10 @@
       <h1> {{ id.title }}</h1>
       <h4> by: {{ id.author }}</h4>
       <div class="buttonContainer">
-        <button class="button1" @click="addToCart" :cart="cart">+</button>
-        <div class="cartValue"> {{ cart }}</div>
-        <button class="button2" 
+        <button class="button1" 
         @click="removeFromCart">-</button>
+        <div class="cartValue"> {{ cart }}</div>
+        <button class="button2" @click="addToCart" :cart="cart">+</button>
       </div>  
       <div> {{ statusDescription }}</div>
     </div>
