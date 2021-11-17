@@ -13,7 +13,7 @@
       <!-- </div> -->
       <div id="nav-btns">
         <button class="button" @click="previousPage()" :disable="!firstPage" :class="{ disabledButton: !firstPage }">Previous</button>
-        <button class="button" @click="nextPage()" >Next</button>
+        <button class="button" @click="nextPage()" :disable="lastPage" :class="{ disabledButton: lastPage }">Next</button>
       </div>
     </section>
   </div>
@@ -74,6 +74,13 @@ export default {
   computed: {
       firstPage() {
         return this.index
+      },
+      lastPage() {
+        if (this.index === this.lists.results.lists.length -1) {
+            return true   
+          } else {
+            return false
+        }
       }
   },
 };
@@ -144,9 +151,9 @@ url("../assets/shelves.jpg");
     width: 7rem;
   }
   .disabledButton {
-    background-color: gray;
-	  border: gray 2px solid;
-    color: white;
+    background-color: white;
+	  border: rgb(168, 162, 162) 2px solid;
+    color: rgb(168, 162, 162);
     cursor: inherit;
   }
 </style>
