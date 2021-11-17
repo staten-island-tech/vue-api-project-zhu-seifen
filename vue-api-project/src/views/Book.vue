@@ -7,7 +7,7 @@
       </div>
     </div>  
     <div>
-      <div v-bind:style="{ border: bottom}">
+      <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
       </div>
@@ -39,6 +39,7 @@ export default {
   methods: {
     addToCart (){
       this.cart += 1
+      this.remove = 0
       this.statusDescription = this.cart + ' item(s) has been added to your cart.'
       console.log('This item has been added to your cart.')
       
@@ -71,7 +72,7 @@ h1{
 
   text-align: left;
   margin:0.5rem
-/*   add cart and way to leave rating */
+/*   add cart and way to leave rating, img resixing  */
 }
 h4{
   font-size:1rem;
@@ -88,6 +89,7 @@ h4{
 img {
     /* max-width: 100%; */
     height: 15rem; 
+    width: 5rem;
 }
 
 .buttonContainer {
