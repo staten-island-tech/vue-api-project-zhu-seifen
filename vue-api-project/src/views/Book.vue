@@ -2,22 +2,24 @@
   <div class="book-flex">
     <div class="container">
       <img class="image" :src="id.book_image">
-      <div class="middle">
+      
+      <!-- <div class="middle">
         <div class="text"> {{ id.description }}</div>
-      </div>
+      </div> -->
     </div>  
     <div>
       <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
+        <div class="description"> {{ id.description }}</div>
       </div>
-     
-      <div class="buttonContainer">
+     <button class="buttonStyle" @click="addToCart" :disabled="cart >= 1">Add to Cart</button>
+      <!-- <div class="buttonContainer">
         <button class="button1" 
         @click="removeFromCart">-</button>
         <div class="cartValue"> {{ cart }}</div>
         <button class="button2" @click="addToCart" :cart="cart">+</button>
-      </div>  
+      </div>   -->
       <div class="status"> {{ statusDescription }}</div>
     </div>
   </div>
@@ -58,6 +60,31 @@ export default {
 </script>
 
 <style scoped>
+.buttonStyle {
+  background-color: white;
+	border: #FF9800 2px solid;
+  color: #FF9800;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+	cursor: pointer;
+	outline: inherit;
+  transition: all .5s ease-out;
+}
+
+.buttonStyle:hover {
+  background-color: #FF9800;
+	border: #FF9800 2px solid;
+  color: white;
+  transition: .5s ease-out;
+}
+.description {
+  display: flex;
+ text-align: center;
+ font-size: 1rem;
+ 
+  justify-content: center;
+}
 .book-flex {
   display: flex; 
   padding: 2rem;
@@ -69,17 +96,17 @@ export default {
 }
 h1{
   font-size: 2rem;
-
   text-align: left;
   margin:0.5rem
-/*   add cart and way to leave rating, img resixing  */
+/*   add cart and way to leave rating, img resizing  */
 }
 h4{
-  font-size:1rem;
+  font-size:0.8rem;
   border-bottom: 1px solid black;
   text-align: left;
   padding-bottom: 10px;
-  margin:0.5rem
+  margin:0.5rem;
+  color: #FF9800;
   
 }
 .status {
