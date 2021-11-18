@@ -2,6 +2,7 @@
     <div id="nav">
         <div id="nav-buttons">
             <router-link class="nav-sections" to="/">Home</router-link> |
+            <router-link class="nav-sections" to="/search">Search</router-link> |
             <router-link class="nav-sections" to="/about">Your Cart</router-link>
         </div>
     </div>
