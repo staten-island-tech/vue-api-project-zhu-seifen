@@ -13,7 +13,12 @@
         <h4> by: {{ id.author }}</h4>
         <div class="description"> {{ id.description }}</div>
       </div>
-     <button class="buttonStyle" @click="addToCart" :disabled="cart >= 1">Add to Cart</button>
+     <button 
+     @click="addToCart" 
+     :disabled="cart >= 1" 
+     :class="{ disabledButton: cart >= 1, buttonStyle: cart < 1}"
+     >Add to Cart
+     </button>
       <!-- <div class="buttonContainer">
         <button class="button1" 
         @click="removeFromCart">-</button>
@@ -80,6 +85,22 @@ export default {
   color: white;
   transition: .5s ease-out;
 }
+.disabledButton{
+   background-color: grey;
+   color: white;
+   border:none;
+  border: grey 2px solid; 
+border-radius: 5px; 
+padding: .5rem 1rem; 
+margin-top: 1rem; 
+cursor: pointer;
+outline: inherit;
+
+ } 
+
+
+
+
 .description {
   display: flex;
  text-align: center;
