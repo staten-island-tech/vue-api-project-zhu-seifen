@@ -38,7 +38,9 @@ export default {
          remove: 0,
      }
    },
+
   methods: {
+
     addToCart (){
       this.cart += 1
       this.remove = 0
