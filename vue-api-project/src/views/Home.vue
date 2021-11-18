@@ -12,8 +12,8 @@
         <BookCard v-for="book in books.books" :key="book.title" :book="book"/>
       <!-- </div> -->
       <div id="nav-btns">
-        <button class="button" @click="previousPage()">Previous</button>
-        <button class="button" @click="nextPage()">Next</button>
+        <button class="button" @click="previousPage()" :disable="!firstPage" :class="{ disabledButton: !firstPage }">Previous</button>
+        <button class="button" @click="nextPage()" :disable="lastPage" :class="{ disabledButton: lastPage }">Next</button>
       </div>
     </section>
   </div>
@@ -32,6 +32,7 @@ export default {
       lists: [],
       books: [],
       index: 0,
+      // isDisabled: false,
     }
   },
   created: function() {
@@ -43,6 +44,9 @@ export default {
       try {
         const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
         const data = await result.json();
+        const result2 = await fetch(`https://api.nytimes.com/svc/books/v3/reviews.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
+        const data2 = await result2.json();
+        console.log(data2)
         this.lists = data
         this.books = this.lists.results.lists[this.index]
         console.log(this.books)    
@@ -71,7 +75,16 @@ export default {
       },
   },
   computed: {
-      
+      firstPage() {
+        return this.index
+      },
+      lastPage() {
+        if (this.index === this.lists.results.lists.length -1) {
+            return true   
+          } else {
+            return false
+        }
+      }
   },
 };
 </script>
@@ -128,7 +141,22 @@ url("../assets/shelves.jpg");
   }
 
   .button {
-    margin: 1rem;
+    background-color: #FF9800;
+	  border: #FF9800 2px solid;
+    color: white;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+	  cursor: pointer;
+	  outline: inherit;
+    transition: all .5s ease-out;
+    margin: 2rem;
     width: 7rem;
+  }
+  .disabledButton {
+    background-color: white;
+	  border: rgb(168, 162, 162) 2px solid;
+    color: rgb(168, 162, 162);
+    cursor: inherit;
   }
 </style>

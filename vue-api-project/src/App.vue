@@ -6,21 +6,26 @@
       <div> Cart:{{ cart }}</div>
 
     </div>
+    <NavBar/>
     <router-view />
   </div>
 </template>
 
 <script>
+import NavBar from "./components/NavBar.vue";
+
 export default {
   props: {
     cart: Number,
   },
   
   data() {
-    return {
-      
-    }
+
+},
+ components: {
+    NavBar
   }
+
 }
 
 </script>

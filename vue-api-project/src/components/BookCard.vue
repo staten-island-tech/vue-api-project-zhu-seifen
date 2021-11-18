@@ -16,6 +16,7 @@
 
 <script>
 export default {
+    name: "BookCard",
     props: {
         book: Object,
     },
@@ -68,12 +69,22 @@ export default {
     }
 
     .book-btn {
-        background-color: #ff9800;
-	    color: white;
-	    border: none;
-	    font: inherit;
+        background-color: white;
+	    border: #FF9800 2px solid;
+        color: #FF9800;
+        border-radius: 5px;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
 	    cursor: pointer;
 	    outline: inherit;
+       transition: all .5s ease-out;
+    }
+    
+    .book-btn:hover {
+        background-color: #FF9800;
+	    border: #FF9800 2px solid;
+        color: white;
+        transition: .5s ease-out;
     }
     
 </style>
