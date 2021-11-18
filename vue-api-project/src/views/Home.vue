@@ -44,6 +44,9 @@ export default {
       try {
         const result = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
         const data = await result.json();
+        const result2 = await fetch(`https://api.nytimes.com/svc/books/v3/reviews.json?api-key=usCi4RaBNDKBfG3jWXiTgwjpfSJ6aWG4`)
+        const data2 = await result2.json();
+        console.log(data2)
         this.lists = data
         this.books = this.lists.results.lists[this.index]
         console.log(this.books)    
