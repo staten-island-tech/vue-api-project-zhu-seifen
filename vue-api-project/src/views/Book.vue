@@ -2,7 +2,6 @@
   <div class="book-flex">
     <div class="container">
       <img class="image" :src="id.book_image">
-      
       <!-- <div class="middle">
         <div class="text"> {{ id.description }}</div>
       </div> -->
@@ -17,6 +16,8 @@
      @click="addToCart" 
      :disabled="cart >= 1" 
      :class="{ disabledButton: cart >= 1, buttonStyle: cart < 1}"
+     :shoppingCart="shoppingCart"
+     :cart="cart"
      >Add to Cart
      </button>
       <!-- <div class="buttonContainer">
@@ -31,7 +32,6 @@
 </template>
 
 <script>
-
 export default {
  props  : {
    id : Object,
@@ -41,6 +41,7 @@ export default {
         statusDescription: "",
          cart: 0,
          remove: 0,
+        shoppingCart: [] 
      }
    },
 
@@ -48,6 +49,8 @@ export default {
 
     addToCart (){
       this.cart += 1
+      this.shoppingCart.push(this.id)
+      console.log(this.shoppingCart.length)
       this.remove = 0
       this.statusDescription = this.cart + ' item(s) has been added to your cart.'
       console.log('This item has been added to your cart.')

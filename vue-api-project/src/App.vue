@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/test/">Test</router-link>
       <div> Cart:{{ cart }}</div>
 
-    </div>
+    </div> -->
     <NavBar/>
     <router-view />
   </div>
@@ -18,10 +18,10 @@ export default {
   props: {
     cart: Number,
   },
-  
   data() {
-
-},
+    return {
+    }
+  },
  components: {
     NavBar
   }
