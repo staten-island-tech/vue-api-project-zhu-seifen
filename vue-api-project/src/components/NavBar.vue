@@ -1,19 +1,28 @@
+
 <template>
     <div id="nav">
         <div id="nav-buttons">
             <router-link class="nav-sections" to="/">Home</router-link> |
-            <router-link class="nav-sections" to="/test/">Your Cart:{{  }}</router-link>
+            <router-link class="nav-sections" to="/cart/">Your Cart: {{$root.cartSum}}
+
+            </router-link>
+ 
+           
+
         </div>
     </div>
 </template>
 
+
 <script>
+
+ //import shoppingCart from "../main.js";
+
+//shoppingCart.push('1')
+
 export default {
     name: "NavBar",
-    props: {
-        shoppingCart: Array,
-        cart: Number,
-    }
+  
 }
 </script>
 

@@ -27,6 +27,7 @@ export default {
   components: {
       BookCard,
   },
+  
   data(){
     return {
       lists: [],

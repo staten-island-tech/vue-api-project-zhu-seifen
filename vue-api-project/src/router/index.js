@@ -3,8 +3,11 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Book from "../views/Book.vue";
 import Test from "../views/Test.vue";
+import Cart from "../views/Cart.vue";
 
 Vue.use(VueRouter);
+
+
 
 const routes = [
   {
@@ -22,6 +25,11 @@ const routes = [
     path: "/test/",
     name: "Test",
     component: Test,
+  },
+  {
+    path: "/cart/",
+    name: "Cart",
+    component: Cart,
   },
 ];
 

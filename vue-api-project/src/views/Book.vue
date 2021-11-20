@@ -10,96 +10,41 @@
       <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
+ 
         <div class="description"> {{ id.description }}</div>
       </div>
-     <button 
+     <!-- <button 
+     class="buttonStyle"
      @click="addToCart" 
-     :disabled="cart >= 1" 
-     :class="{ disabledButton: cart >= 1, buttonStyle: cart < 1}"
-     :shoppingCart="shoppingCart"
-     :cart="cart"
      >Add to Cart
-     </button>
-      <!-- <div class="buttonContainer">
-        <button class="button1" 
-        @click="removeFromCart">-</button>
-        <div class="cartValue"> {{ cart }}</div>
-        <button class="button2" @click="addToCart" :cart="cart">+</button>
-      </div>   -->
-      <div class="status"> {{ statusDescription }}</div>
+     </button> -->
+
+  <UpdateCart :id="id" />
+
+     
+
     </div>
   </div>
 </template>
 
 <script>
+import UpdateCart from "../components/UpdateCart.vue";
+
 export default {
  props  : {
    id : Object,
+   
    },
-   data() {
-     return {
-        statusDescription: "",
-         cart: 0,
-         remove: 0,
-        shoppingCart: [] 
-     }
-   },
-
-  methods: {
-
-    addToCart (){
-      this.cart += 1
-      this.shoppingCart.push(this.id)
-      console.log(this.shoppingCart.length)
-      this.remove = 0
-      this.statusDescription = this.cart + ' item(s) has been added to your cart.'
-      console.log('This item has been added to your cart.')
-      
-    },
-    removeFromCart (){
-      if (this.cart >= 1)
-         this.cart -= 1,
-         this.remove +=1
-         this.statusDescription = this.remove +' item(s) has been removed from your cart.',
-         console.log('This item has been removed from your cart.')
-    },
-
-  },
+components: {
+  UpdateCart
+}
 
 }
 </script>
 
 <style scoped>
-.buttonStyle {
-  background-color: white;
-	border: #FF9800 2px solid;
-  color: #FF9800;
-  border-radius: 5px;
-  padding: .5rem 1rem;
-  margin-top: 1rem;
-	cursor: pointer;
-	outline: inherit;
-  transition: all .5s ease-out;
-}
 
-.buttonStyle:hover {
-  background-color: #FF9800;
-	border: #FF9800 2px solid;
-  color: white;
-  transition: .5s ease-out;
-}
-.disabledButton{
-   background-color: grey;
-   color: white;
-   border:none;
-  border: grey 2px solid; 
-border-radius: 5px; 
-padding: .5rem 1rem; 
-margin-top: 1rem; 
-cursor: pointer;
-outline: inherit;
 
- } 
 
 
 
@@ -154,7 +99,7 @@ img {
 }
 
 .cartValue {
-  background-color:#FF9800;
+  background-color:white;
   font-size: 0.95rem;
 
 }
