@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 .header {
-    height: 92vh;
+    height: 50vh;
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/shelves.jpg");
     display:flex;
@@ -104,19 +104,19 @@ export default {
     flex-direction: column;
     text-align: center;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     line-height: 1.3;
     transform: translate(-50%, -50%);
   }
   
   .title {
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 300;
   }
   
   .title2 {
-    font-size: 7rem;
+    font-size: 5rem;
     font-weight: 900;
   }
 
