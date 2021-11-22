@@ -9,6 +9,7 @@
  
            
 
+            <router-link class="nav-sections" to="/search">Search</router-link> |
         </div>
     </div>
 </template>
