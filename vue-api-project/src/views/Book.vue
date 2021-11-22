@@ -1,29 +1,21 @@
 <template>
   <div class="book-flex">
-    <div class="container">
-      <img class="image" :src="id.book_image">
+      <img  :src="id.book_image">
       <!-- <div class="middle">
         <div class="text"> {{ id.description }}</div>
       </div> -->
-    </div>  
-    <div>
       <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
- 
-        <div class="description"> {{ id.description }}</div>
-      </div>
+        <p class="description"> {{ id.description }}</p>
+        <UpdateCart :id="id" />
+    </div>
      <!-- <button 
      class="buttonStyle"
      @click="addToCart" 
      >Add to Cart
      </button> -->
-
-  <UpdateCart :id="id" />
-
-     
-
-    </div>
+    
   </div>
 </template>
 
@@ -44,27 +36,28 @@ components: {
 
 <style scoped>
 
-
-
-
-
-
-.description {
-  display: flex;
- text-align: center;
- font-size: 1rem;
- 
-  justify-content: center;
-}
 .book-flex {
   display: flex; 
   padding: 2rem;
   flex-direction: row; 
-
   justify-content: center;
   flex-wrap: wrap;
-
+  flex-direction: row;
 }
+img {
+    /* max-width: 100%; */
+    height: 35rem; 
+    /* width: 5rem; */
+}
+
+.description {
+  display: flex;
+  text-align: center;
+ font-size: 1rem;
+ 
+  justify-content: center;
+}
+
 h1{
   font-size: 2rem;
   text-align: left;
@@ -84,11 +77,7 @@ h4{
   font-size: 1rem;
   padding: 1rem;
 }
-img {
-    /* max-width: 100%; */
-    height: 15rem; 
-    width: 5rem;
-}
+
 
 .buttonContainer {
   display: flex;
@@ -106,7 +95,7 @@ img {
 .container { 
   position: relative; width: 50%; 
   } 
-.image { 
+/* .image { 
   opacity: 1; 
   display: block;
   width: 100%;
@@ -114,7 +103,7 @@ img {
   transition: .5s ease;
   backface-visibility:hidden; 
 
-  } 
+  }  */
 .middle { 
   transition: .5s ease; 
   opacity: 0; 
@@ -137,6 +126,12 @@ img {
   padding: 16px 32px; }
 
 
+@media screen  and (max-width: 1000px) {
+  img {
+    height: 20rem;
+  }
+}
+/* 
 @media screen and (max-width: 900px){
   .book-flex{
       display: flex; 
@@ -156,7 +151,7 @@ img {
   img{
     height: 1rem; 
   }
-}
+} */
 
 .button1 {
   border: none;

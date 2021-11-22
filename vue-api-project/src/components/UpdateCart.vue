@@ -1,10 +1,10 @@
 <template>
-      <div class="buttonContainer">
+      <div class="flexButton">
+        <div>
+          <button class="button1" @click="removeFromCart">-</button>
+          <button class="button2" @click="addToCart">+</button>
+        </div>
         <div class="cartValue">You have {{ cart }} item(s) of this book.</div>
-
-        <button class="button1" @click="removeFromCart">-</button>
-
-        <button class="button2" @click="addToCart">+</button>
       </div>
 </template>
 
@@ -89,161 +89,69 @@ export default {
 </script>
 
 <style scoped>
-.buttonStyle {
-  background-color: white;
-  border: #ff9800 2px solid;
-  color: #ff9800;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+.cartValue {
+  display: flex;
+  text-align: center;
+  font-size: 1rem;
+  justify-content: center;
+  padding: 10px;
+}
+
+.flexButton {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+}
+.button1 {
+  border: none;
+  width: 4rem;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  
+  background-color: #ff9800;
+  
+    /* background-color: white; */
+  border: black 2px solid;
+  border-right: none;
+  color: black;
+  /* border-radius: 5px; */
+  padding: 4px;
   margin-top: 1rem;
   cursor: pointer;
   outline: inherit;
   transition: all 0.5s ease-out;
 }
-
-.buttonStyle:hover {
-  background-color: #ff9800;
-  border: #ff9800 2px solid;
-  color: white;
-  transition: 0.5s ease-out;
-}
-.disabledButton {
-  background-color: grey;
-  color: white;
-  border: none;
-  border: grey 2px solid;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  outline: inherit;
-}
-
-.description {
-  display: flex;
-  text-align: center;
-  font-size: 1rem;
-
-  justify-content: center;
-}
-.book-flex {
-  display: flex;
-  padding: 2rem;
-  flex-direction: row;
-
-  justify-content: center;
-  flex-wrap: wrap;
-}
-h1 {
-  font-size: 2rem;
-  text-align: left;
-  margin: 0.5rem;
-  /*   add cart and way to leave rating, img resizing  */
-}
-h4 {
-  font-size: 0.8rem;
-  border-bottom: 1px solid black;
-  text-align: left;
-  padding-bottom: 10px;
-  margin: 0.5rem;
-  color: #ff9800;
-}
-.status {
-  font-size: 1rem;
-  padding: 1rem;
-}
-img {
-  /* max-width: 100%; */
-  height: 15rem;
-  width: 5rem;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.cartValue {
-  background-color: white;
-  font-size: 0.95rem;
-}
-.container {
-  position: relative;
-  width: 50%;
-}
-.image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
-}
-.middle {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-.container:hover .image {
-  opacity: 0.3;
-}
-.container:hover .middle {
-  opacity: 1;
-}
-.text {
-  background-color: #04aa6d;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
-
-@media screen and (max-width: 900px) {
-  .book-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  .status {
-    font-size: 1rem;
-  }
-  img {
-    height: 1rem;
-  }
-}
-
-.button1 {
-  border: none;
-  width: 3rem;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  background-color: #ff9800;
-}
 .button2 {
   border: none;
-  width: 3rem;
+  width: 4rem;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   background-color: #ff9800;
+
+   border: black 2px solid;
+   border-left: none;
+  color: black;
+  /* border-radius: 5px; */
+  padding: 4px;
+  /* margin-top: 1rem; */
+  cursor: pointer;
+  outline: inherit;
+  transition: all 0.5s ease-out;
 }
 
 .button2:hover {
   background-color: #e64a19;
+   /* background-color: #ff9800; */
+  /* border: #ff9800 2px solid; */
+  color: white;
+  transition: 0.5s ease-out;
 }
 .button1:hover {
-  background-color: #e64a19;
+   background-color: #e64a19;
+   /* background-color: #ff9800; */
+  /* border: #ff9800 2px solid; */
+  color: white;
+  transition: 0.5s ease-out;
 }
 </style>
