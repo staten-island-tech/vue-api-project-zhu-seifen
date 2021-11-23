@@ -8,7 +8,7 @@
             <div id="nav-buttons">
                 <router-link class="nav-sections" to="/">Home</router-link> |
                 <router-link class="nav-sections" to="/search">Search</router-link> |
-                <router-link class="nav-sections" to="/cart/">Your Cart: {{$root.cartSum}}</router-link>
+                <router-link class="nav-sections" to="/cart/">Your Cart [ {{$root.cartSum}} ]</router-link>
             </div>
         </div>
     </div>

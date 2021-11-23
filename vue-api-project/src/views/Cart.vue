@@ -1,6 +1,6 @@
 <template>
-  <div >
-    <button @click="clearList">Clear Cart</button>
+  <div class="cart">
+    <button @click="clearList" class="clear-btn">Clear Cart</button>
       <CartItem v-for="(item,index) in this.$root.shoppingCart" :key="item.title" :book="item" :index="index"/>
 
     <div class="empty" v-if="$root.cartSum == 0">
@@ -35,8 +35,28 @@ export default {
 </script>
 
 <style scoped>
+.cart {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .empty {
   font-size: 3rem;
   padding: 1rem;
+}
+
+.clear-btn {
+  background-color: #FF9800;
+	  border: #FF9800 2px solid;
+    color: white;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+	  cursor: pointer;
+	  outline: inherit;
+    transition: all .5s ease-out;
+    margin: 1rem;
+    width: 7rem;
 }
 </style>

@@ -6,12 +6,11 @@
         <div class="text"> {{ id.description }}</div>
       </div> -->
     </div>  
-    <div>
+    <div id="book-info">
       <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
- 
-        <div class="description"> {{ id.description }}</div>
+        <p class="description"> {{ id.description }}</p>
       </div>
      <!-- <button 
      class="buttonStyle"
@@ -44,77 +43,69 @@ components: {
 
 <style scoped>
 
-
-
-
-
-
 .description {
   display: flex;
- text-align: center;
- font-size: 1rem;
- 
+  text-align: center;
+  font-size: 1rem;
   justify-content: center;
 }
+
 .book-flex {
   display: flex; 
   padding: 2rem;
+  margin: 3rem;
   flex-direction: row; 
-
   justify-content: center;
   flex-wrap: wrap;
-
 }
+
 h1{
   font-size: 2rem;
   text-align: left;
   margin:0.5rem
 /*   add cart and way to leave rating, img resizing  */
 }
+
 h4{
   font-size:0.8rem;
   border-bottom: 1px solid black;
   text-align: left;
-  padding-bottom: 10px;
+  padding: 10px;
   margin:0.5rem;
   color: #FF9800;
-  
 }
+
+#book-info{
+  margin: 1rem;
+}
+
 .status {
   font-size: 1rem;
   padding: 1rem;
 }
+
 img {
     /* max-width: 100%; */
-    height: 15rem; 
-    width: 5rem;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  
+    height: 20rem; 
 }
 
 .cartValue {
   background-color:white;
   font-size: 0.95rem;
-
 }
-.container { 
-  position: relative; width: 50%; 
-  } 
+
+/* .container { 
+  position: relative; 
+  width: 50%; 
+}  */
+
 .image { 
   opacity: 1; 
   display: block;
-  width: 100%;
-  height: auto;
   transition: .5s ease;
   backface-visibility:hidden; 
+} 
 
-  } 
 .middle { 
   transition: .5s ease; 
   opacity: 0; 
@@ -123,26 +114,31 @@ img {
   left: 50%; 
   transform: translate(-50%, -50%); 
   -ms-transform: translate(-50%,-50%); 
-  text-align: center; } 
+  text-align: center; 
+} 
+
 .container:hover .image { 
   opacity: 0.3; 
-  }
+}
+
 .container:hover .middle { 
   opacity: 1; 
-  }
+}
+
 .text { 
   background-color: #04AA6D;
   color: white; 
   font-size: 16px;
-  padding: 16px 32px; }
+  padding: 16px 32px; 
+}
 
 
 @media screen and (max-width: 900px){
   .book-flex{
       display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
   }
   h1{
   font-size: 2rem;
@@ -156,29 +152,6 @@ img {
   img{
     height: 1rem; 
   }
-}
-
-.button1 {
-  border: none;
-  width: 3rem;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  background-color: #FF9800;
-
-}
-.button2 {
-  border: none;
-  width: 3rem;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background-color: #FF9800;
-}
-
-.button2:hover{
-  background-color:#E64A19;
-}
-.button1:hover{
-  background-color: #E64A19;
 }
 
 </style>
