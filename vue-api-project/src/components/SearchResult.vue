@@ -5,15 +5,21 @@
         <p> {{ result.author }} </p>
         <p> {{ result.description }} </p>
       </div>
+      <UpdateCart :id="result"/>
   </section>
 </template>
 
 <script>
+import UpdateCart from "../components/UpdateCart.vue";
+
 export default {
     name: "SearchResult",
     props: {
         result: Object,
     },
+    components: {
+        UpdateCart,
+    }
 }
 </script>
 
