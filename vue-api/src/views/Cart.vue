@@ -5,7 +5,7 @@
 
     <div class="empty" v-if="$root.cartSum == 0">
         <p>Your cart is empty. My cat is sad now!!</p>
-        <img src="..\assets\sadCat.jpg" alt="Sad Cat">
+        <img src="..\assets\sadcat.jpg" alt="Sad Cat">
 
     </div>
    
