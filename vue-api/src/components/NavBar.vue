@@ -9,7 +9,7 @@
                 <router-link class="nav-sections" to="/">Home</router-link> |
                 <router-link class="nav-sections" to="/search">Search</router-link> |
                 <router-link class="nav-sections" to="/cart/">Your Cart</router-link>
-                <p>[ {{$root.cartSum}} ]</p>
+                <p> [ {{$root.cartSum}} ]</p>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@ export default {
         font-size: 1rem;
         color: white;
     }
-    
+
     .nav-sections {
         margin: 1rem;
         font-size: 1rem;
