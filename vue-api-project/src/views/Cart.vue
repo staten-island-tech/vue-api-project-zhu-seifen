@@ -4,7 +4,7 @@
       <CartItem v-for="(item,index) in this.$root.shoppingCart" :key="item.title" :book="item" :index="index"/>
 
     <div class="empty" v-if="$root.cartSum == 0">
-        <p>Your cart is empty. My cat is sad now!!</p>
+        <p>Your cart is empty.</p>
         
 
     </div>
