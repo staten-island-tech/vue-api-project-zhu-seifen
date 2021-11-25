@@ -8,7 +8,8 @@
             <div id="nav-buttons">
                 <router-link class="nav-sections" to="/">Home</router-link> |
                 <router-link class="nav-sections" to="/search">Search</router-link> |
-                <router-link class="nav-sections" to="/cart/">Your Cart [ {{$root.cartSum}} ]</router-link>
+                <router-link class="nav-sections" to="/cart/">Your Cart</router-link>
+                <p>[ {{$root.cartSum}} ]</p>
             </div>
         </div>
     </div>
@@ -40,6 +41,13 @@ export default {
         z-index: 1;
         padding-right: 3rem;
     }
+
+    p {
+        margin: 1rem;
+        font-size: 1rem;
+        color: white;
+    }
+    
     .nav-sections {
         margin: 1rem;
         font-size: 1rem;
