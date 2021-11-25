@@ -57,7 +57,7 @@ export default {
 
     .cart-nav {
         margin: 1rem;
-        margin-right: 0rem;
+        margin-right: 3px;
         font-size: 1rem;
         color: white;
         text-decoration: inherit;
