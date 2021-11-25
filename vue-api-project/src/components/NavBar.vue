@@ -41,7 +41,7 @@ export default {
         z-index: 1;
         padding-right: 3rem;
     }
-    
+
     .nav-sections {
         margin: 1rem;
         font-size: 1rem;
@@ -50,7 +50,7 @@ export default {
     }
 
     p{
-        margin: 1rem;
+        margin-right: 1rem;
         font-size: 1rem;
         color: white;
     }
