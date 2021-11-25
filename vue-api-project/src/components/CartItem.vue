@@ -1,15 +1,15 @@
 <template>
   <section class="book-card">
-    <img :src="this.book.book_image" alt="Book Cover" class="book-cover" />
+    <img :src="book.book_image" alt="Book Cover" class="book-cover" />
     <div id="book-info">
       <h3 class="title">{{ book.title }}</h3>
       <p class="author-name">{{ book.author }}</p>
       <p class="book-description">{{ book.description }}</p>
-      <router-link
+      <!-- <router-link
         class="book-btn"
         :to="{ name: 'Book', params: { id: book } }"
         tag="button"
-        >Add/Remove</router-link>
+        >Add/Remove</router-link> -->
 
         <UpdateCart :id="book"/>
 

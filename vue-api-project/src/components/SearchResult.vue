@@ -19,6 +19,15 @@ export default {
     },
     components: {
         UpdateCart,
+    },
+    mounted: function() {
+        this.setImage()
+    },
+    methods: {
+        setImage() {
+            this.result.book_image = require("../assets/default_book_cover.jpg")
+            console.log(this.result)
+        }
     }
 }
 </script>

@@ -33,7 +33,6 @@ export default {
       lists: [],
       books: [],
       index: 0,
-      // isDisabled: false,
     }
   },
   created: function() {

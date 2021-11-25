@@ -1,10 +1,10 @@
 <template>
   <div class="cart">
-    <button @click="clearList" class="clear-btn">Clear Cart</button>
+    <button @click="clearList" class="clear-btn" :disable="noItems" :class="{ disabledButton: noItems }">Clear Cart</button>
       <CartItem v-for="(item,index) in this.$root.shoppingCart" :key="item.title" :book="item" :index="index"/>
 
     <div class="empty" v-if="$root.cartSum == 0">
-        Your cart is empty. My cat is sad now!!
+        <p>Your cart is empty. My cat is sad now!!</p>
         <img src="..\assets\sadCat.jpg" alt="">
 
     </div>
@@ -20,7 +20,7 @@
 import CartItem from "../components/CartItem.vue"; 
 
 export default {
-     name:"Cart", 
+     name:"Cart",
      components: { 
          CartItem, 
          },
@@ -29,6 +29,15 @@ export default {
             this.$root.shoppingCart = [];
             this.$root.quantity = [];
             this.$root.cartSum = 0;
+        }
+      },
+      computed: {
+        noItems() {
+          if (this.$root.cartSum === 0) {
+            return true
+          } else {
+            return false
+          }
         }
       }
   } 
@@ -44,7 +53,6 @@ export default {
 
 .empty {
   font-size: 3rem;
-  padding: 1rem;
 }
 
 .clear-btn {
@@ -58,5 +66,18 @@ export default {
     transition: all .5s ease-out;
     margin: 1rem;
     width: 7rem;
+}
+
+.disabledButton {
+    background-color: white;
+	  border: rgb(168, 162, 162) 2px solid;
+    color: rgb(168, 162, 162);
+    cursor: inherit;
+ }
+
+p {
+  font-size: 2rem;
+  margin: 0rem;
+  margin-bottom: 1rem;
 }
 </style>

@@ -13,4 +13,3 @@ new Vue({
   render: (h) => h(App),
   data: { shoppingCart :[], quantity: [], cartSum: 0}
 }).$mount("#app");
-
