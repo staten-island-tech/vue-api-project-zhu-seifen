@@ -47,6 +47,10 @@ export default {
                 const data = await result.json();
                 this.data = data
                 this.results = data.results
+                this.results.forEach(result => {
+                    result.book_image = require("../assets/default_book_cover.jpg")
+                    console.log(result)
+                });
                 this.onSubmit()
                 this.checkValid()
                 this.searchParams = ""
