@@ -6,12 +6,13 @@
       </div> -->
  
     <div id="book-info">
-      <div>
+
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
         <p class="description"> {{ id.description }}</p>
         <UpdateCart :id="id" />
-    </div>
+        <Review :book="id"/>
+  
     </div>
      <!-- <button 
      class="buttonStyle"
@@ -24,6 +25,8 @@
 
 <script>
 import UpdateCart from "../components/UpdateCart.vue";
+import Review from "../components/Review.vue";
+
 
 export default {
  props  : {
@@ -31,7 +34,8 @@ export default {
    
    },
 components: {
-  UpdateCart
+  UpdateCart,
+  Review,
 }
 
 }
@@ -65,7 +69,7 @@ img {
   display: flex;
   text-align: center;
  font-size: 1rem;
- 
+ margin:0.5rem;
   justify-content: center;
 }
 
@@ -80,13 +84,16 @@ h4{
   font-size:0.8rem;
   border-bottom: 1px solid black;
   text-align: left;
-  padding: 10px;
+  /* padding: 10px; */
   margin:0.5rem;
   color: #FF9800;
 }
 
 #book-info{
+
   margin: 1rem;
+
+  
 }
 
 .status {
@@ -159,6 +166,10 @@ img {
     height: 20rem;
   }
 }
+
+/* #book-info{
+  width: 70%;
+} */
 /* 
 @media screen and (max-width: 900px){
   .book-flex{

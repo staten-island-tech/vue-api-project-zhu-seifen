@@ -21,7 +21,7 @@ import NavBar from "./components/NavBar.vue";
 
 export default {
   props: {
-    cart: Number,
+  //  cart: Number,
   },
   data() {
     return {

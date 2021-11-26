@@ -76,7 +76,8 @@ export default {
         return this.index
       },
       lastPage() {
-        if (this.index === this.lists.results.lists.length -1) {
+        
+         if (this.index === this.lists.results.lists.length -1) {
             return true   
           } else {
             return false

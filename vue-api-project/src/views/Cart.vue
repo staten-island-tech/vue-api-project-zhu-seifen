@@ -27,7 +27,6 @@ export default {
       methods: {
         clearList () {
             this.$root.shoppingCart = [];
-            this.$root.quantity = [];
             this.$root.cartSum = 0;
         }
       },
@@ -67,6 +66,9 @@ export default {
     margin: 1rem;
     width: 7rem;
 }
+
+
+
 
 .disabledButton {
     background-color: white;
