@@ -48,25 +48,27 @@ export default {
                 this.data = data
                 this.results = data.results
                 this.onSubmit()
-                console.log(this.results)
+                this.checkValid()
                 this.searchParams = ""
             } catch (error) {
                 console.log(error)
                 
             }
         },
-        onSubmit() {
-            if (!this.enteredParam || this.searchParams.trim() === "") {
-                this.message = "Please search for a book!";
-                this.searchParams = ""
-            } else {
-                this.fetchData();
-            }
+        checkValid() {
             if (!this.validParam) {
-                this.message = "Sorry, we don't have that book!"
+                this.message = "Sorry, we don't have this book!"
                 this.searchParams = ""
             } else {
                 //
+            }
+        },
+        onSubmit() {
+            if (!this.enteredParam || this.searchParams.trim() === "") {
+                this.message = "Please enter a valid book title!";
+                this.searchParams = ""
+            } else {
+                this.fetchData();
             }
         },
     },
