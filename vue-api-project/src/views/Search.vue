@@ -2,7 +2,7 @@
     <div id="search">
         <section id="search-page">
             <h2>Search for a book!</h2>
-            <form class="search-form" @submit.prevent="fetchData">
+            <form class="search-form" @submit.prevent="onSubmit()">
                 <input 
                 class="search-bar" 
                 type="text" 
@@ -35,13 +35,11 @@ export default {
         return {
             searchParams: null,
             data: [],
-            results: ["result"],
+            results: [],
             message: "Search to see results!",
         }
     },
-    created: function() {
-        this.fetchData();
-    },
+    
     methods: {
         fetchData: async function(){
             try {
@@ -51,35 +49,42 @@ export default {
                 this.results = data.results
                 this.onSubmit()
                 console.log(this.results)
+                this.searchParams = ""
             } catch (error) {
                 console.log(error)
                 
             }
         },
         onSubmit() {
-            if (this.searchParams.trim() === "" || this.data.num_results === 0) {
-                this.message = "Invalid search, please try again!"
-                this.searchParams = "";
+            if (!this.enteredParam || this.searchParams.trim() === "") {
+                this.message = "Please search for a book!";
+                this.searchParams = ""
             } else {
-                this.searchParams = "";
+                this.fetchData();
+            }
+            if (!this.validParam) {
+                this.message = "Sorry, we don't have that book!"
+                this.searchParams = ""
+            } else {
+                //
             }
         },
     },
     computed: {
         validParam() {
-        if (this.data.num_results === 0) {
+        if (this.results.length === 0) {
             return false   
           } else {
             return true
         }
       },
-      /*  formEntered() {
-          if (this.searchParams.trim() === "") {
-              return false
+      enteredParam() {
+        if (!this.searchParams) {
+            return false   
           } else {
-              return true
-          }
-      } */
+            return true
+        }
+      },
     },
 }
 </script>

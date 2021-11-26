@@ -22,7 +22,7 @@ export default {
   created: function () {
     let found = -1; //this.$shoppingCart.push('1')
     found = this.$root.shoppingCart.findIndex((item) => {
-      return item.primary_isbn13 == this.id.primary_isbn13;
+      return item.title == this.id.title;
     });
 
     if (found > -1) {
@@ -41,7 +41,7 @@ export default {
       let found = -1;
       //this.$shoppingCart.push('1')
       found = this.$root.shoppingCart.findIndex((item) => {
-        return item.primary_isbn13 == this.id.primary_isbn13;
+        return item.title == this.id.title;
       });
       if (found < 0) {
         this.$root.shoppingCart.push(this.id);
@@ -65,7 +65,7 @@ export default {
 
       let found = -1; //this.$shoppingCart.push('1')
       found = this.$root.shoppingCart.findIndex((item) => {
-        return item.primary_isbn13 == this.id.primary_isbn13;
+        return item.title == this.id.title;
       });
       if (this.$root.quantity[found] > 1) {
         this.$root.quantity[found] = this.$root.quantity[found] - 1;
