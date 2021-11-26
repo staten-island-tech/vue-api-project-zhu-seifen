@@ -2,7 +2,7 @@
     <div id="search">
         <section id="search-page">
             <h2>Search for a book!</h2>
-            <form class="search-form" @submit.prevent="fetchData">
+            <form class="search-form" @submit.prevent="onSubmit()">
                 <input 
                 class="search-bar" 
                 type="text" 
@@ -35,13 +35,11 @@ export default {
         return {
             searchParams: null,
             data: [],
-            results: ["result"],
+            results: [],
             message: "Search to see results!",
         }
     },
-    created: function() {
-        this.fetchData();
-    },
+    
     methods: {
         fetchData: async function(){
             try {
@@ -49,37 +47,50 @@ export default {
                 const data = await result.json();
                 this.data = data
                 this.results = data.results
+                this.results.forEach(result => {
+                    result.book_image = require("../assets/default_book_cover.jpg")
+                    console.log(result)
+                });
                 this.onSubmit()
-                console.log(this.results)
+                this.checkValid()
+                this.searchParams = ""
             } catch (error) {
                 console.log(error)
                 
             }
         },
-        onSubmit() {
-            if (this.searchParams.trim() === "" || this.data.num_results === 0) {
-                this.message = "Invalid search, please try again!"
-                this.searchParams = "";
+        checkValid() {
+            if (!this.validParam) {
+                this.message = "Sorry, we don't have this book!"
+                this.searchParams = ""
             } else {
-                this.searchParams = "";
+                //
+            }
+        },
+        onSubmit() {
+            if (!this.enteredParam || this.searchParams.trim() === "") {
+                this.message = "Please enter a valid book title!";
+                this.searchParams = ""
+            } else {
+                this.fetchData();
             }
         },
     },
     computed: {
         validParam() {
-        if (this.data.num_results === 0) {
+        if (this.results.length === 0) {
             return false   
           } else {
             return true
         }
       },
-      /*  formEntered() {
-          if (this.searchParams.trim() === "") {
-              return false
+      enteredParam() {
+        if (!this.searchParams) {
+            return false   
           } else {
-              return true
-          }
-      } */
+            return true
+        }
+      },
     },
 }
 </script>

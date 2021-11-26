@@ -1,14 +1,10 @@
 <template>
-      <div class="flexButton">
-        <div>
-          <button class="button1" @click="removeFromCart">-</button>
-          <button class="button2" @click="addToCart">+</button>
-        </div>
+      <div class="buttonContainer">
         <div class="cartValue">You have {{ cart }} item(s) of this book.</div>
-        <!-- <div>
+        <div>
           <button class="button1 btn" @click="removeFromCart">-</button>
           <button class="button2 btn" @click="addToCart">+</button>
-        </div> -->
+        </div>
       </div>
 </template>
 
@@ -26,7 +22,7 @@ export default {
   created: function () {
     let found = -1; //this.$shoppingCart.push('1')
     found = this.$root.shoppingCart.findIndex((item) => {
-      return item.title == this.id.title;
+      return item.primary_isbn13 == this.id.primary_isbn13;
     });
 
     if (found > -1) {
@@ -45,7 +41,7 @@ export default {
       let found = -1;
       //this.$shoppingCart.push('1')
       found = this.$root.shoppingCart.findIndex((item) => {
-        return item.title == this.id.title;
+        return item.primary_isbn13 == this.id.primary_isbn13;
       });
       if (found < 0) {
         this.$root.shoppingCart.push(this.id);
@@ -69,7 +65,7 @@ export default {
 
       let found = -1; //this.$shoppingCart.push('1')
       found = this.$root.shoppingCart.findIndex((item) => {
-        return item.title == this.id.title;
+        return item.primary_isbn13 == this.id.primary_isbn13;
       });
       if (this.$root.quantity[found] > 1) {
         this.$root.quantity[found] = this.$root.quantity[found] - 1;
@@ -93,56 +89,6 @@ export default {
 </script>
 
 <style scoped>
-.cartValue {
-  display: flex;
-  text-align: center;
-  font-size: 1rem;
-  justify-content: center;
-  padding: 10px;
-}
-
-.flexButton {
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  flex-direction: column;
-}
-.button1 {
-  border: none;
-  width: 4rem;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  
-  background-color: #ff9800;
-  
-    /* background-color: white; */
-  border: black 2px solid;
-  border-right: none;
-  color: black;
-  /* border-radius: 5px; */
-  padding: 4px;
-  margin-top: 1rem;
-  cursor: pointer;
-  outline: inherit;
-  transition: all 0.5s ease-out;
-}
-.button2 {
-  border: none;
-  width: 4rem;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background-color: #ff9800;
-
-   border: black 2px solid;
-   border-left: none;
-  color: black;
-  /* border-radius: 5px; */
-  padding: 4px;
-  /* margin-top: 1rem; */
-  cursor: pointer;
-  outline: inherit;
-  transition: all 0.5s ease-out;
-}
 .buttonStyle {
   background-color: white;
   border: #ff9800 2px solid;
@@ -206,17 +152,6 @@ export default {
 
 .button2:hover {
   background-color: #e64a19;
-   /* background-color: #ff9800; */
-  /* border: #ff9800 2px solid; */
-  color: white;
-  transition: 0.5s ease-out;
-}
-.button1:hover {
-   background-color: #e64a19;
-   /* background-color: #ff9800; */
-  /* border: #ff9800 2px solid; */
-  color: white;
-  transition: 0.5s ease-out;
   transition: all .3s ease-out;
 }
 .button1:hover {

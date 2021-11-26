@@ -88,71 +88,72 @@ export default {
 
 <style scoped>
 .header {
-    height: 50vh;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../assets/shelves.jpg");
-    display:flex;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  }
+  height: 50vh;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("../assets/shelves.jpg");
+  display:flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
   
-  .heading {
-    color:white;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    line-height: 1.3;
-    transform: translate(-50%, -50%);
-  }
+.heading {
+  color:white;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  line-height: 1.3;
+  transform: translate(-50%, -50%);
+}
   
-  .title {
-    font-size: 4rem;
-    font-weight: 300;
-  }
+.title {
+  font-size: 4rem;
+  font-weight: 300;
+}
   
-  .title2 {
-    font-size: 5rem;
-    font-weight: 900;
-  }
+.title2 {
+  font-size: 5rem;
+  font-weight: 900;
+}
 
-  .books {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+.books {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  h2{
-    font-size: 2rem;
-  }
+h2{
+  font-size: 2rem;
+}
 
-  #nav-btns {
-    border-top: solid 1px black;
-    width: 60%;
-    padding: 2rem;
-  }
+#nav-btns {
+  border-top: solid 1px black;
+  width: 60%;
+  padding: 2rem;
+}
 
-  .button {
-    background-color: #FF9800;
-	  border: #FF9800 2px solid;
-    color: white;
-    border-radius: 5px;
-    padding: .5rem 1rem;
-    margin-top: 1rem;
-	  cursor: pointer;
-	  outline: inherit;
-    transition: all .5s ease-out;
-    margin: 2rem;
-    width: 7rem;
-  }
-  .disabledButton {
-    background-color: white;
-	  border: rgb(168, 162, 162) 2px solid;
-    color: rgb(168, 162, 162);
-    cursor: inherit;
-  }
+.button {
+  background-color: #FF9800;
+  border: #FF9800 2px solid;
+  color: white;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  outline: inherit;
+  transition: all .5s ease-out;
+  margin: 2rem;
+  width: 7rem;
+}
+
+.disabledButton {
+  background-color: white;
+	border: rgb(168, 162, 162) 2px solid;
+  color: rgb(168, 162, 162);
+  cursor: inherit;
+}
 </style>

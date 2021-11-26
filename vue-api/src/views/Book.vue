@@ -1,24 +1,28 @@
 <template>
   <div class="book-flex">
-      <img  :src="id.book_image">
+    <div class="container">
+      <img class="image" :src="id.book_image">
       <!-- <div class="middle">
         <div class="text"> {{ id.description }}</div>
       </div> -->
- 
+    </div>  
     <div id="book-info">
       <div>
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
         <p class="description"> {{ id.description }}</p>
-        <UpdateCart :id="id" />
-    </div>
-    </div>
+      </div>
      <!-- <button 
      class="buttonStyle"
      @click="addToCart" 
      >Add to Cart
      </button> -->
-    
+
+  <UpdateCart :id="id" />
+
+     
+
+    </div>
   </div>
 </template>
 
@@ -53,20 +57,6 @@ components: {
   flex-direction: row; 
   justify-content: center;
   flex-wrap: wrap;
-  flex-direction: row;
-}
-img {
-    /* max-width: 100%; */
-    height: 35rem; 
-    /* width: 5rem; */
-}
-
-.description {
-  display: flex;
-  text-align: center;
- font-size: 1rem;
- 
-  justify-content: center;
 }
 
 h1{
@@ -94,13 +84,6 @@ h4{
   padding: 1rem;
 }
 
-
-.buttonContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
 img {
     /* max-width: 100%; */
     height: 20rem; 
@@ -110,10 +93,6 @@ img {
   background-color:white;
   font-size: 0.95rem;
 }
-.container { 
-  position: relative; width: 50%; 
-  } 
-/* .image { 
 
 /* .container { 
   position: relative; 
@@ -154,12 +133,6 @@ img {
 }
 
 
-@media screen  and (max-width: 1000px) {
-  img {
-    height: 20rem;
-  }
-}
-/* 
 @media screen and (max-width: 900px){
   .book-flex{
       display: flex; 
@@ -179,7 +152,7 @@ img {
   img{
     height: 1rem; 
   }
-} */
+}
 
 </style>
 
