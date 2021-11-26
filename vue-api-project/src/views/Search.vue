@@ -56,6 +56,7 @@ export default {
                 this.searchParams = ""
             } catch (error) {
                 console.log(error)
+                alert("Sorry, we could not complete your request.")
                 
             }
         },
