@@ -85,7 +85,7 @@ export default {
     justify-content: center; 
     align-items: center; 
     text-align: left;
-    width: 36rem;
+    width: 37rem;
     font-size: 15px;
 }
 

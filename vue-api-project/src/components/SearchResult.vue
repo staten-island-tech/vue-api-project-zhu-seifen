@@ -5,12 +5,18 @@
         <p> {{ result.author }} </p>
         <p> {{ result.description }} </p>
       </div>
-      <UpdateCart :id="result"/>
+      
+      <router-link
+  class="book-btn"
+  :to="{ name: 'Book', params: { id: result } }"
+  tag="button"
+>Learn More</router-link>
+
   </section>
 </template>
 
 <script>
-import UpdateCart from "../components/UpdateCart.vue";
+
 
 export default {
     name: "SearchResult",
@@ -18,7 +24,7 @@ export default {
         result: Object,
     },
     components: {
-        UpdateCart,
+       
     },
     /* mounted: function() {
         this.setImage()
@@ -51,4 +57,21 @@ export default {
     p {
         font-size: 1rem;
     }
+    .book-btn { margin-bottom: 1rem; 
+    background-color: white; 
+    border: #FF9800 2px solid;
+     color: #FF9800;
+border-radius: 5px;
+ padding: .5rem 1rem; 
+ margin-top: 1rem; 
+ cursor: pointer;
+outline: inherit;
+ transition: all .5s ease-out; } 
+ 
+ .book-btn:hover {
+background-color: #FF9800;
+ border: #FF9800 2px solid; 
+ color: white; 
+ transition: .5s ease-out; }
+
 </style>

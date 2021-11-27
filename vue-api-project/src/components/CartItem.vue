@@ -12,6 +12,12 @@
         >Add/Remove</router-link> -->
 
         <UpdateCart :id="book"/>
+        <router-link
+         class="book-btn"
+        :to="{ name: 'Book', params: { id: book } }"
+         tag="button"
+        >Learn More</router-link>
+
 
     </div>
   </section>
@@ -91,4 +97,24 @@ p {
   color: white;
   transition: 0.5s ease-out;
 }
+
+.book-btn {
+margin-bottom: 1rem; 
+background-color: white; 
+border: #FF9800 2px solid;
+ color: #FF9800; 
+ border-radius: 5px; 
+ padding: .5rem 1rem; 
+ margin-top: 1rem; 
+ cursor: pointer; 
+ outline: inherit; 
+ transition: all .5s ease-out; 
+ }
+.book-btn:hover {
+   background-color: #FF9800; 
+   border: #FF9800 2px solid; 
+   color:white; 
+transition: .5s ease-out; 
+}
+
 </style>
