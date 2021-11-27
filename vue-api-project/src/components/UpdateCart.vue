@@ -4,7 +4,7 @@
           <button class="button1" @click="removeFromCart">-</button>
           <button class="button2" @click="addToCart">+</button>
         </div>
-        <div class="cartValue">You have {{ cart }} item(s) of this book.</div>
+        <div class="cartValue">You have &nbsp;<span> {{ cart }}  </span> &nbsp; item(s) of this book.</div>
       </div>
 </template>
 
@@ -145,6 +145,14 @@ this.$root.shoppingCart[found].quantity
   margin: 1rem;
 }
 
+span {
+  font-style: bold;
+  background-color: #ff9800;
+  color: white;
+  border-radius: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
 
 .cartValue { 
   display: flex; 
