@@ -1,11 +1,14 @@
 <template>
   <div class="book-flex">
-      <img  :src="id.book_image">
+   
+     <img  :src="id.book_image">
+    
+      
       <!-- <div class="middle">
         <div class="text"> {{ id.description }}</div>
       </div> -->
  
-    <div id="book-info">
+    <div claa="book-info">
 
         <h1> {{ id.title }}</h1>
         <h4> by: {{ id.author }}</h4>
@@ -42,29 +45,23 @@ components: {
 </script>
 
 <style scoped>
-
-.description {
-  display: flex;
-  text-align: center;
-  font-size: 1rem;
-  justify-content: center;
-}
+ 
 
 .book-flex {
   display: flex; 
   padding: 2rem;
   margin: 3rem;
-  flex-direction: row; 
+ 
   justify-content: center;
-  flex-wrap: wrap;
+  
   flex-direction: row;
-}
+ }
 img {
     /* max-width: 100%; */
     height: 35rem; 
     /* width: 5rem; */
 }
-
+ 
 .description {
   display: flex;
   text-align: center;
@@ -89,9 +86,11 @@ h4{
   color: #FF9800;
 }
 
-#book-info{
+.book-info{
 
   margin: 1rem;
+  
+
 
   
 }
